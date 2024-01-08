@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
+import { ApiService } from './api.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,4 +13,13 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'clerks-app';
+  message: any;
+
+  constructor(private apiService: ApiService) {};
+
+  ngOnInit() {
+    this.apiService.getMessage().subscribe(data => {
+      this.message = data;
+    })
+  }
 }
