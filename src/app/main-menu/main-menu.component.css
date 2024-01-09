@@ -1,0 +1,14 @@
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 50px auto;
+}
+
+.menu-list button {
+    margin: 10px auto;
+    padding: 20px;
+    width: 280px;
+    background-color: #3f51b5 !important;
+    color: white !important;
+}

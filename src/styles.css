@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@font-face {
+    font-family: 'DMSerif';
+    src: url("./assets/DMSerifDisplay-Regular.ttf")
+}
+
+html, body {
+    height: 100%;
+    font-family: DMSerif;
+}
+body { margin: 0; }
