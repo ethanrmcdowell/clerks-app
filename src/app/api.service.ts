@@ -9,7 +9,7 @@ export class ApiService {
 
   getMessage() {
     return this.http.get(
-      'http://localhost:3000/api/message'
+      'http://localhost:3000/api/sql'
     );
   }
 }

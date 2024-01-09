@@ -19,7 +19,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.apiService.getMessage().subscribe(data => {
-      this.message = data;
+      console.log(data);
     })
   }
 }
