@@ -20,7 +20,7 @@ export class AppComponent {
   constructor(private apiService: ApiService, private router: Router) {};
 
   ngOnInit() {
-    this.router.navigate(['/main']);
+    this.router.navigate(['/garage']);
 
     // this.apiService.getMessage().subscribe(data => {
     //   console.log(data);

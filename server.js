@@ -24,7 +24,7 @@ app.get('/api/message', (req,res) => {
     res.json({ message: "HEY THERE does this thing work??" });
 });
 
-app.get('/api/sql', (req, res) => {
+app.get('/api/garage', (req, res) => {
     sql.connect(config, function(err) {
         if (err) console.log(err);
 

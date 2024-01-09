@@ -1,1 +1,22 @@
-<p>garage-sales works!</p>
+<section class="garage-header">
+    <h1>Garage Sales</h1>
+    <mat-radio-group [(ngModel)]="garageSelected">
+        <mat-radio-button color="primary" value="search">Search</mat-radio-button>
+        <mat-radio-button color="primary" value="add">Add</mat-radio-button>
+    </mat-radio-group>
+</section>
+
+<mat-card class="garage-card">
+    @if (this.garageSelected === "search") {
+        <mat-form-field>
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="pickerStart" [(ngModel)]="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        <button mat-raised-button (click)="testData()">Test</button>
+    } @else if (this.garageSelected === "add") {
+    
+    }
+</mat-card>

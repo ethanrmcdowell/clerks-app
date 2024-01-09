@@ -1,0 +1,25 @@
+.garage-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 15px 0;
+}
+
+.garage-card {
+    width: 60%;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+mat-form-field {
+    width: 200px;
+}
+
+button {
+    width: 200px;
+    margin-top: 20px;
+    background-color: #3f51b5 !important;
+    color: white !important;
+}
