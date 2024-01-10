@@ -6,7 +6,7 @@
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
             <mat-datepicker #pickerStart></mat-datepicker>
-            @if (startDate.hasError('required')) {
+            @if (searchForm.get('startDate')?.hasError('required')) {
                 <mat-error>Start date is required</mat-error>
             }
         </mat-form-field>
@@ -15,10 +15,10 @@
             <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
             <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
             <mat-datepicker #pickerEnd></mat-datepicker>
+            @if (searchForm.get('endDate')?.hasError('required')) {
+                <mat-error>End date is required</mat-error>
+            }
         </mat-form-field>
-        @if (endDate.hasError('required')) {
-            <mat-error>Start date is required</mat-error>
-        }
     </div>
     <div>
         <mat-form-field>
