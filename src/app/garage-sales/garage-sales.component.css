@@ -11,10 +11,13 @@
     width: 60%;
     margin: 25px auto;
     padding: 20px;
+    display: flex;
+    align-items: center;
 }
 
 mat-form-field {
     width: 200px;
+    margin: 5px;
 }
 
 button {

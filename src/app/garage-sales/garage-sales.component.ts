@@ -10,6 +10,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -20,13 +21,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './garage-sales.component.css'
 })
 export class GarageSalesComponent {
-  constructor(private datePipe: DatePipe) {};
+  constructor(private datePipe: DatePipe, private apiService: ApiService) {};
 
   garageSelected: any = "search";
   startDate: Date | undefined;
   endDate: Date | undefined;
 
   testData() {
-    console.log(this.datePipe.transform(this.startDate, "yyyy-MM-dd"));
+    const data = {
+      start: this.datePipe.transform(this.startDate, "yyyy-MM-dd"),
+      end: this.datePipe.transform(this.endDate, "yyyy-MM-dd")
+    }
+    
+    console.log("Searching " + data.start + " to " + data.end);
+    this.apiService.searchGarage(data).subscribe(data => {
+      console.log(data);
+    });
   }
 }

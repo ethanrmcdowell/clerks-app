@@ -8,13 +8,21 @@
 
 <mat-card class="garage-card">
     @if (this.garageSelected === "search") {
-        <mat-form-field>
-            <mat-label>Start Date</mat-label>
-            <input matInput [matDatepicker]="pickerStart" [(ngModel)]="startDate">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
-            <mat-datepicker #pickerStart></mat-datepicker>
-        </mat-form-field>
+        <div>
+            <mat-form-field>
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="pickerStart" [(ngModel)]="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="pickerEnd" [(ngModel)]="endDate">
+                <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+        </div>
         <button mat-raised-button (click)="testData()">Test</button>
     } @else if (this.garageSelected === "add") {
     

@@ -7,9 +7,13 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
-  getMessage() {
+  searchGarage(data: any) {
+    const params = {
+      start: data.start,
+      end: data.end
+    }
     return this.http.get(
-      'http://localhost:3000/api/sql'
+      'http://localhost:3000/api/garage', { params }
     );
   }
 }
