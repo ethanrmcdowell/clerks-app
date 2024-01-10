@@ -9,11 +9,18 @@ export class ApiService {
 
   searchGarage(data: any) {
     const params = {
-      start: data.start,
-      end: data.end
+      startDate: data.startDate,
+      endDate: data.endDate,
+      permitNum: data.permitNum,
+      name: data.name,
+      address: data.address,
+      section: data.section,
+      orgName: data.orgName,
+      orgAddress: data.orgAddress
     }
+
     return this.http.get(
-      'http://localhost:3000/api/garage', { params }
+      'http://localhost:3000/api/garage/search', { params }
     );
   }
 }
