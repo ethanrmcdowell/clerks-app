@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
@@ -35,6 +35,8 @@ export class GarageSearchComponent {
   searchForm = new FormGroup({
     startDate: new FormControl(''),
     endDate: new FormControl(''),
+    formatStartDate: new FormControl(''),
+    formatEndDate: new FormControl(''),
     permitNum: new FormControl(''),
     name: new FormControl(''),
     address: new FormControl(''),
@@ -45,12 +47,14 @@ export class GarageSearchComponent {
 
   searchData() {
     this.dataSearched = false;
-    const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd");
-    const end = this.datePipe.transform(this.searchForm.get('endDate')?.value, "yyyy-MM-dd");
-    this.searchForm.get('startDate')?.setValue(start === null ? '' : start);
-    this.searchForm.get('endDate')?.setValue(end === null ? '' : end);
 
-    // console.log("Search Form ->", this.searchForm.value);
+    // Transform date objects into yyyy-MM-dd to match DB fields
+    const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd", "GMT");
+    const end = this.datePipe.transform(this.searchForm.get('endDate')?.value, "yyyy-MM-dd", "GMT");
+    this.searchForm.get('formatStartDate')?.setValue(start === null ? '' : start);
+    this.searchForm.get('formatEndDate')?.setValue(end === null ? '' : end);
+
+    console.log(this.searchForm.value);
 
     this.apiService.searchGarage(this.searchForm.value).subscribe(data => {
       this.saleData = (data as any)[0];

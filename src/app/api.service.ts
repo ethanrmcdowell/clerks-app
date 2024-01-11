@@ -9,8 +9,8 @@ export class ApiService {
 
   searchGarage(data: any) {
     const params = {
-      startDate: data.startDate,
-      endDate: data.endDate,
+      startDate: data.formatStartDate,
+      endDate: data.formatEndDate,
       permitNum: data.permitNum,
       name: data.name,
       address: data.address,
