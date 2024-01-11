@@ -45,7 +45,7 @@ export class GarageSearchComponent {
     this.searchForm.get('startDate')?.setValue(start === null ? '' : start);
     this.searchForm.get('endDate')?.setValue(end === null ? '' : end);
 
-    console.log("Search Form ->", this.searchForm.value);
+    // console.log("Search Form ->", this.searchForm.value);
 
     this.apiService.searchGarage(this.searchForm.value).subscribe(data => {
       this.saleData = (data as any)[0];
