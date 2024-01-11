@@ -1,1 +1,69 @@
-<p>garage-dialog works!</p>
+<div class="dialog-container">
+    <h1>Applicant Information:</h1>
+    <div class="input-container">
+        <mat-form-field>
+            <mat-label>Permit Number</mat-label>
+            <input matInput [(ngModel)]="data.permit_no" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="data.name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Street Address</mat-label>
+            <input matInput [(ngModel)]="data.street_addr">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Zip Code</mat-label>
+            <input matInput [(ngModel)]="data.zip">
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field>
+            <mat-label>Section</mat-label>
+            <input matInput [(ngModel)]="data.section">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Telephone</mat-label>
+            <input matInput [(ngModel)]="data.phone">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="pickerStart" [(ngModel)]="data.sale_date">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="pickerEnd" [(ngModel)]="data.end_date">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+        </mat-form-field>
+    </div>
+</div>
+<div class="dialog-container">
+    <h1>Organization Information:</h1>
+    <div class="organization-container">
+        <mat-form-field>
+            <mat-label>Organization Name</mat-label>
+            <input matInput [(ngModel)]="data.org_name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Organization Address</mat-label>
+            <input matInput [(ngModel)]="data.org_addr">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Organization Phone</mat-label>
+            <input matInput [(ngModel)]="data.org_phone">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Notes</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+    </div>
+</div>
+<div class="button-container">
+    <button mat-raised-button class="button-update" (click)="updateSale()">Update</button>
+    <button mat-raised-button class="button-delete" (click)="deleteSale()">Delete</button>
+    <button mat-raised-button class="button-cancel" (click)="cancelDialog()">Cancel</button>
+</div>
