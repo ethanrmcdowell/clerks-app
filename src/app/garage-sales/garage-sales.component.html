@@ -6,10 +6,8 @@
     </mat-radio-group>
 </section>
 
-<mat-card class="garage-card">
-    @if (this.garageSelected === "search") {
-        <app-garage-search></app-garage-search>
-    } @else if (this.garageSelected === "add") {
-    
-    }
-</mat-card>
+@if (this.garageSelected === "search") {
+    <app-garage-search></app-garage-search>
+} @else if (this.garageSelected === "add") {
+
+}

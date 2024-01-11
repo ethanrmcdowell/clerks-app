@@ -13,3 +13,16 @@ button {
 .button-container {
     display: flex;
 }
+
+.garage-card {
+    width: 60%;
+    margin: 25px auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.report-container {
+    width: 60%;
+    margin: 25px auto;
+}

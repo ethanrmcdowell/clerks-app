@@ -1,52 +1,62 @@
-<div [formGroup]="searchForm">
-    <div>
-        <mat-form-field>
-            <mat-label>Start Date</mat-label>
-            <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
-            <mat-datepicker #pickerStart></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>End Date</mat-label>
-            <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
-            <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
-            <mat-datepicker #pickerEnd></mat-datepicker>
-        </mat-form-field>
+<mat-card class="garage-card">
+    <div [formGroup]="searchForm">
+        <div>
+            <mat-form-field>
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
+                <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Permit Number</mat-label>
+                <input matInput formControlName="permitNum">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Section</mat-label>
+                <input matInput formControlName="section">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Street Address</mat-label>
+                <input matInput formControlName="address">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Organization Name</mat-label>
+                <input matInput formControlName="orgName">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Organization Street Address</mat-label>
+                <input matInput formControlName="orgAddress">
+            </mat-form-field>
+        </div>
+        <div class="button-container">
+            <button mat-raised-button (click)="searchData()">Search</button>
+        </div>
     </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Permit Number</mat-label>
-            <input matInput formControlName="permitNum">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Section</mat-label>
-            <input matInput formControlName="section">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Street Address</mat-label>
-            <input matInput formControlName="address">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Organization Name</mat-label>
-            <input matInput formControlName="orgName">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Organization Street Address</mat-label>
-            <input matInput formControlName="orgAddress">
-        </mat-form-field>
-    </div>
-</div>
+</mat-card>
 
-
-<div class="button-container">
-    <button mat-raised-button (click)="searchData()">Search</button>
-</div>
+@if (this.saleData.length > 0) {
+    <div class="report-container">
+        @for (item of this.saleData; track item.permit_no) {
+            <mat-list class="list-item" (click)="saleDialog(item)">
+                <app-garage-items [saleData]="item"></app-garage-items>
+            </mat-list>
+        }
+    </div>
+}

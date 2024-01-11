@@ -1,0 +1,27 @@
+<mat-list-item class="list-item">
+    <div class="grid grid-cols-2 gap-4">
+        <span>
+            Permit {{ saleData.permit_no }}
+        </span>
+        <span>
+            {{ saleData.name }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+        <span>
+            {{ saleData.street_addr }}, {{ saleData.zip | slice: 0:-1 }}
+        </span>
+        <span>
+            {{ saleData.sale_date }} - {{ saleData.end_date }}
+        </span>
+
+    </div>
+</mat-list-item>
+
+<mat-divider></mat-divider>
+
+
+<!-- 
+    fields to display:
+    permit_no, name, street_addr, sale_date, end_date
+-->

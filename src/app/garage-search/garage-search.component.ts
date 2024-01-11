@@ -11,11 +11,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { GarageItemsComponent } from '../garage-items/garage-items.component';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-garage-search',
   standalone: true,
-  imports: [MatRadioModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCardModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatNativeDateModule],
+  imports: [MatRadioModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCardModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatNativeDateModule, GarageItemsComponent, MatListModule, MatDividerModule],
   templateUrl: './garage-search.component.html',
   styleUrl: './garage-search.component.css'
 })
@@ -53,5 +56,9 @@ export class GarageSearchComponent {
 
       console.log(this.saleData);
     });
+  }
+
+  saleDialog(item: any) {
+    console.log("Sale Data ->", item);
   }
 }

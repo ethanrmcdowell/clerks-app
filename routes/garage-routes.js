@@ -18,37 +18,37 @@ router.get('/search', (req, res) => {
     }
 
     if (filters.permitNum !== '') {
-        if (firstFilter) queryString += " AND"
+        if (firstFilter) queryString += " AND";
         queryString += " permit_no ='" + filters.permitNum + "'";
         firstFilter = true;
     }
 
     if (filters.name !== '') {
-        if (firstFilter) queryString += " AND"
+        if (firstFilter) queryString += " AND";
         queryString += " name LIKE '%" + filters.name + "%'";
         firstFilter = true;
     }
 
     if (filters.address !== '') {
-        if (firstFilter) queryString += " AND"
+        if (firstFilter) queryString += " AND";
         queryString += " street_addr LIKE '%" + filters.address + "%'";
         firstFilter = true;
     }
 
     if (filters.section !== '') {
-        if (firstFilter) queryString += " AND"
+        if (firstFilter) queryString += " AND";
         queryString += " section = '" + filters.section + "'";
         firstFilter = true;
     }
 
     if (filters.orgName !== '') {
-        if (firstFilter) queryString += " AND"
+        if (firstFilter) queryString += " AND";
         queryString += " org_name LIKE '%" + filters.orgName + "%'";
         firstFilter = true;
     }
 
     if (filters.orgAddress !== '') {
-        if (firstFilter) queryString += " AND"
+        if (firstFilter) queryString += " AND";
         queryString += " org_addr LIKE '%" + filters.orgAddress + "%'";
     }
 
