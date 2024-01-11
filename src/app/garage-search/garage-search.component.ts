@@ -28,8 +28,8 @@ export class GarageSearchComponent {
   saleData: any[] = [];
 
   searchForm = new FormGroup({
-    startDate: new FormControl('', [Validators.required]),
-    endDate: new FormControl('', [Validators.required]),
+    startDate: new FormControl(''),
+    endDate: new FormControl(''),
     permitNum: new FormControl(''),
     name: new FormControl(''),
     address: new FormControl(''),
@@ -43,7 +43,7 @@ export class GarageSearchComponent {
     const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd");
     const end = this.datePipe.transform(this.searchForm.get('endDate')?.value, "yyyy-MM-dd");
     this.searchForm.get('startDate')?.setValue(start === null ? '' : start);
-    this.searchForm.get('endDate')?.setValue(end === null ? '' : start);
+    this.searchForm.get('endDate')?.setValue(end === null ? '' : end);
 
     console.log("Search Form ->", this.searchForm.value);
 
