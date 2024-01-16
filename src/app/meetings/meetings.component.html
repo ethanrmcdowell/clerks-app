@@ -1,1 +1,13 @@
-<p>meetings works!</p>
+<section class="meetings-header">
+    <h1>Meetings</h1>
+    <mat-radio-group [(ngModel)]="meetingSelected">
+        <mat-radio-button color="primary" value="search">Search</mat-radio-button>
+        <mat-radio-button color="primary" value="add">Add</mat-radio-button>
+    </mat-radio-group>
+</section>
+
+@if (this.meetingSelected === "search") {
+    <app-meetings-search></app-meetings-search>
+} @else if (this.meetingSelected === "add") {
+    <app-meetings-add></app-meetings-add>
+}
