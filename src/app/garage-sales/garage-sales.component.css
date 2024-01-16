@@ -5,12 +5,9 @@
     justify-content: center;
     align-items: center;
     margin: 10px 0 15px 0;
-}
-
-.garage-card {
-    width: 60%;
-    margin: 25px auto;
-    padding: 20px;
-    display: flex;
-    align-items: center;
+    h1 {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 20px;
+    }
 }
