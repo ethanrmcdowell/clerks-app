@@ -1,67 +1,69 @@
 <mat-card class="garage-card">
-    <div class="add-container">
-        <div class="input-container">
-            <mat-form-field>
-                <mat-label>Permit Number</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Name</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Street Address</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Zip Code</mat-label>
-                <input matInput>
-            </mat-form-field>
+    <div [formGroup]="addForm">
+        <div class="add-container">
+            <div class="input-container">
+                <mat-form-field>
+                    <mat-label>Permit Number</mat-label>
+                    <input matInput formControlName="permitNum">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Street Address</mat-label>
+                    <input matInput formControlName="address">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput formControlName="zip">
+                </mat-form-field>
+            </div>
+            <div class="input-container">
+                <mat-form-field>
+                    <mat-label>Section</mat-label>
+                    <input matInput formControlName="section">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Telephone</mat-label>
+                    <input matInput formControlName="telephone">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerStart></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerEnd></mat-datepicker>
+                </mat-form-field>
+            </div>
         </div>
-        <div class="input-container">
-            <mat-form-field>
-                <mat-label>Section</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Telephone</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Start Date</mat-label>
-                <input matInput [matDatepicker]="pickerStart">
-                <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
-                <mat-datepicker #pickerStart></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>End Date</mat-label>
-                <input matInput [matDatepicker]="pickerEnd">
-                <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
-                <mat-datepicker #pickerEnd></mat-datepicker>
-            </mat-form-field>
+        <div class="add-container">
+            <div class="organization-container">
+                <mat-form-field>
+                    <mat-label>Organization Name</mat-label>
+                    <input matInput formControlName="orgName">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Organization Address</mat-label>
+                    <input matInput formControlName="orgAddress">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Organization Phone</mat-label>
+                    <input matInput formControlName="orgPhone">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Notes</mat-label>
+                    <textarea matInput formControlName="notes"></textarea>
+                </mat-form-field>
+            </div>
         </div>
-    </div>
-    <div class="add-container">
-        <div class="organization-container">
-            <mat-form-field>
-                <mat-label>Organization Name</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Organization Address</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Organization Phone</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Notes</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
+        <div class="button-container">
+            <button mat-raised-button class="button-add" (click)="addSale()">Add</button>
         </div>
-    </div>
-    <div class="button-container">
-        <button mat-raised-button class="button-add" (click)="addSale()">Add</button>
     </div>
 </mat-card>
