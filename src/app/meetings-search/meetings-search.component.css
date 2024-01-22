@@ -35,3 +35,13 @@ button {
     padding: 10px;
     border-radius: 25px;
 }
+
+@media print {
+    .meetings-card {
+        display: none;
+    }
+
+    .report-container {
+        width: 100%;
+    }
+}

@@ -11,3 +11,9 @@
         padding: 20px;
     }
 }
+
+@media print {
+    .meetings-header mat-radio-group {
+        display: none;
+    }
+}

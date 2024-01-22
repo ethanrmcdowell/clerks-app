@@ -13,6 +13,6 @@ export class MeetingsItemsComponent {
   @Input() meetingData: any;
 
   ngOnInit() {
-    console.log(this.meetingData);
+    // console.log(this.meetingData);
   }
 }

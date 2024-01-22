@@ -12,6 +12,8 @@ import { MatListModule } from '@angular/material/list';
 
 import { ApiService } from '../api.service';
 import { MeetingsItemsComponent } from "../meetings-items/meetings-items.component";
+import { MatDialog } from '@angular/material/dialog';
+import { MeetingsDialogComponent } from '../meetings-dialog/meetings-dialog.component';
 
 @Component({
     selector: 'app-meetings-search',
@@ -21,7 +23,7 @@ import { MeetingsItemsComponent } from "../meetings-items/meetings-items.compone
     imports: [MatListModule, MatCardModule, FormsModule, MatRadioModule, MatButtonModule, ReactiveFormsModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, MatFormFieldModule, MeetingsItemsComponent]
 })
 export class MeetingsSearchComponent {
-  constructor(private datePipe: DatePipe, private apiService: ApiService) {}
+  constructor(public dialog: MatDialog, private datePipe: DatePipe, private apiService: ApiService) {}
 
   meetingData: any[] = [];
   dataFetched: boolean = false;
@@ -53,14 +55,16 @@ export class MeetingsSearchComponent {
           meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
           meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
         });
-
         this.dataFetched = true;
-        console.log(this.meetingData);
       }
     });
   }
 
   meetingDialog(item: any) {
-    console.log(item);
+    const dialogRef = this.dialog.open(MeetingsDialogComponent, {
+      width: '50%',
+      height: '60%',
+      data: item
+    });
   }
 }
