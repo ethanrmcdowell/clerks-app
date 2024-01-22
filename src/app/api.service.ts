@@ -23,4 +23,18 @@ export class ApiService {
       'http://localhost:3000/api/garage/search', { params }
     );
   }
+
+  searchMeetings(data: any) {
+    const params = {
+      startDate: data.formatStartDate,
+      endDate: data.formatEndDate,
+      keyword1: data.keyword1,
+      keyword2: data.keyword2,
+      idNumber: data.idNumber
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/meeting/search', { params }
+      );
+  }
 }

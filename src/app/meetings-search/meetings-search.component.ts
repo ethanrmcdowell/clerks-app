@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-meetings-search',
@@ -17,7 +18,10 @@ import { MatRadioModule } from '@angular/material/radio';
   styleUrl: './meetings-search.component.css'
 })
 export class MeetingsSearchComponent {
-  constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe, private apiService: ApiService) {}
+
+  meetingData: any[] = [];
+  dataFetched: boolean = false;
 
   searchForm = new FormGroup({
     startDate: new FormControl(''),
@@ -35,6 +39,19 @@ export class MeetingsSearchComponent {
     this.searchForm.get('formatStartDate')?.setValue(start === null ? '' : start);
     this.searchForm.get('formatEndDate')?.setValue(end === null ? '' : end);
 
-    console.log(this.searchForm.value);
+    this.apiService.searchMeetings(this.searchForm.value).subscribe(data => {
+      this.meetingData = (data as any)[0];
+
+      if (this.meetingData) {
+        this.meetingData.forEach(meeting => {
+          // update meeting.description & meeting.sub_ref1
+          meeting.description = meeting.description.replace(/\r\n/g, ' ');
+          meeting.sub_ref1 = meeting.sub_ref1.replace(/\r\n/g, ' ');
+        });
+
+        this.dataFetched = true;
+        console.log(this.meetingData);
+      }
+    });
   }
 }

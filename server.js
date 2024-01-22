@@ -7,7 +7,9 @@ const deedRoutes = require('./routes/deed-routes');
 
 require('dotenv').config();
 
-app.use(express.json())
+app.use(express.json());
+
+app.set('json spaces', 0);
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin",
