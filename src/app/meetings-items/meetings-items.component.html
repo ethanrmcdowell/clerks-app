@@ -1,1 +1,19 @@
-<p>meetings-items works!</p>
+<mat-list-item class="list-item">
+    <div class="grid grid-cols-5 gap-5 meeting-title">
+        <span>
+            ({{ meetingData.idno }})
+            {{ meetingData.entry_date }}
+        </span>
+        <span>
+            {{ meetingData.reference }}
+        </span>
+    </div>
+    <div class="grid">
+        <span></span>
+        <span class="meeting-description">
+            {{ meetingData.sub_ref1 }}
+        </span>
+    </div>
+</mat-list-item>
+
+<mat-divider></mat-divider>

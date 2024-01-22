@@ -1,0 +1,16 @@
+.list-item {
+    height: 100%;
+}
+
+.list-item:hover {
+    background-color: #DCF2F1 !important;
+}
+
+.meeting-description {
+    text-wrap: wrap;
+    margin-left: 25%;
+}
+
+.meeting-title {
+    font-weight: bold;
+}

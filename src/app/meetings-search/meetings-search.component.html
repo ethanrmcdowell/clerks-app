@@ -36,3 +36,16 @@
         </div>
     </div>
 </mat-card>
+
+@if (meetingData.length > 0) {
+    <div class="report-container">
+        <div class="results-found">
+            <p>{{ this.meetingData.length }} results found</p>
+        </div>
+        @for (item of this.meetingData; track item.permit_no;) {
+            <mat-list class="list-item" (click)="meetingDialog(item)">
+                <app-meetings-items [meetingData]="item"></app-meetings-items>
+            </mat-list>
+        }
+    </div>
+}

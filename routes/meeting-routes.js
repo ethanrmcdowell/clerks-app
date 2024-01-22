@@ -6,7 +6,7 @@ const sqlConfig = require('../sqlConfig');
 router.get('/search', (req, res) => {
   const filters = req.query;
 
-  let queryString = "SELECT TOP 10 * FROM index_hdr;";
+  let queryString = "SELECT TOP 50 * FROM index_hdr;";
 
   sql.connect(sqlConfig)
     .then(() => {
