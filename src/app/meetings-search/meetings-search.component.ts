@@ -38,6 +38,10 @@ export class MeetingsSearchComponent {
     idNumber: new FormControl('')
   });
 
+  ngOnInit() {
+    console.log(new Date());
+  }
+
   searchData() {
     const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd", "GMT");
     const end = this.datePipe.transform(this.searchForm.get('endDate')?.value, "yyyy-MM-dd", "GMT");
@@ -55,6 +59,7 @@ export class MeetingsSearchComponent {
           meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
           meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
         });
+        console.log(this.meetingData);
         this.dataFetched = true;
       }
     });
