@@ -54,8 +54,8 @@ export class MeetingsSearchComponent {
       if (this.meetingData) {
         this.meetingData.forEach(meeting => {
           // remove \r\n and fix date fields
-          meeting.description = meeting.description.replace(/\r\n/g, ' ');
-          meeting.sub_ref1 = meeting.sub_ref1.replace(/\r\n/g, ' ');
+          meeting.description = meeting.description ? meeting.description.replace(/\r\n/g, ' ') : '';
+          meeting.sub_ref1 = meeting.sub_ref1 ? meeting.sub_ref1.replace(/\r\n/g, ' ') : '';
           meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
           meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
         });

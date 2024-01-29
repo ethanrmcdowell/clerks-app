@@ -6,11 +6,9 @@ const sqlConfig = require('../sqlConfig');
 router.get('/search', (req, res) => {
     const filters = req.query;
 
-    //SEARCHABLE FIELDS: sale_date, permit_no, name, street_addr, section, org_name, org_addr
-
     let queryString = "SELECT * FROM garage_sale WHERE";
 
-    firstFilter = false;
+    let firstFilter = false;
 
     if (filters.startDate !== '' && filters.endDate !== '') {
         queryString +=  " sale_date BETWEEN '" + filters.startDate + "' AND '" + filters.endDate + "'";
