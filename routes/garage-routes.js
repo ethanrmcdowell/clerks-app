@@ -3,6 +3,7 @@ const router = express.Router();
 const sql = require('mssql');
 const sqlConfig = require('../sqlConfig');
 
+// route for searching garage sale records
 router.get('/search', (req, res) => {
     const filters = req.query;
 
@@ -69,6 +70,24 @@ router.get('/search', (req, res) => {
           .finally(() => {
             sql.close();
           });
+});
+
+// route for adding a new garage sale records
+router.get('/add', (req, res) => {
+    console.log("ADD ROUTE~~");
+
+    const filters = req.query;
+
+    let queryString = "INSERT INTO garage_sale (permit_no, name, street_addr, zip, section, " +
+        "phone, sale_date, end_date, org_name, org_addr, org_phone, uid, datestamp) VALUES ('" +
+        filters.permitNum + "', '" + filters.name + "', '" + filters.address + "', '" + filters.zip +
+        "', '" + filters.section + "', '" + filters.telephone + "', '" + filters.startDate  + "', '" + 
+        filters.endDate + "', '" + filters.orgName + "', '" + filters.orgAddress + "', '" + filters.orgTelephone +
+        "', 'emcdowell', '" + filters.timestamp + "';"; 
+        
+    console.log(queryString);
+
+    // DB account isn't set up for adding/updating records yet, not fully implemented yet...
 });
 
 module.exports = router;

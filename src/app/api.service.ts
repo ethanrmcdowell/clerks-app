@@ -24,6 +24,32 @@ export class ApiService {
     );
   }
 
+  updateGarage(data: any) {
+    console.log("DATA", data);
+  }
+
+  addGarage(data: any) {
+    const params = {
+      startDate: data.formatStartDate,
+      endDate: data.formatEndDate,
+      permitNum: data.permitNum,
+      name: data.name,
+      address: data.address,
+      zip: data.zip,
+      telephone: data.telephone,
+      section: data.section,
+      orgName: data.orgName,
+      orgAddress: data.orgAddress,
+      orgTelephone: data.orgTelephone,
+      notes: data.notes,
+      timestamp: data.timestamp
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/garage/add', { params }
+    );
+  }
+
   searchMeetings(data: any) {
     const params = {
       startDate: data.formatStartDate,

@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -14,13 +15,14 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './garage-dialog.component.css'
 })
 export class GarageDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<GarageDialogComponent>) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<GarageDialogComponent>, private apiService: ApiService) {}
 
   ngOnInit() {
     console.log(this.data);
   }
 
   updateSale() {
+    
   }
 
   deleteSale() {
