@@ -29,7 +29,7 @@ import { distinctUntilChanged } from 'rxjs';
 export class GarageSearchComponent {
   constructor(public dialog: MatDialog, private datePipe: DatePipe, private apiService: ApiService, private snackBar: MatSnackBar) {};
 
-  dataSearched: boolean = false;
+  dataFetched: boolean = false;
   startDate: Date | undefined;
   endDate: Date | undefined;
   saleData: any[] = [];
@@ -70,7 +70,7 @@ export class GarageSearchComponent {
   }
 
   searchData() {
-    this.dataSearched = false;
+    this.dataFetched = false;
 
     // Transform date objects into yyyy-MM-dd to match DB fields
     const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd", "GMT");
@@ -84,7 +84,7 @@ export class GarageSearchComponent {
     if (!this.allFieldsEmpty() && this.searchForm.valid) {
       this.apiService.searchGarage(this.searchForm.value).subscribe(data => {
         this.saleData = (data as any)[0];
-        this.dataSearched = true;
+        this.dataFetched = true;
   
         console.log(this.saleData);
       });

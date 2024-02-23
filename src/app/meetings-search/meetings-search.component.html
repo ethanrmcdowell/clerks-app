@@ -37,7 +37,7 @@
     </div>
 </mat-card>
 
-@if (meetingData.length > 0) {
+@if (meetingData.length > 0 && this.dataFetched) {
     <div class="report-container">
         <div class="results-found">
             <p>{{ this.meetingData.length }} results found</p>
@@ -47,5 +47,9 @@
                 <app-meetings-items [meetingData]="item"></app-meetings-items>
             </mat-list>
         }
+    </div>
+} @else if (meetingData.length === 0 && this.dataFetched) {
+    <div class="report-container">
+        <h1>No results found.</h1>
     </div>
 }

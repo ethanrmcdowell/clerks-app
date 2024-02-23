@@ -13,7 +13,8 @@ app.set('json spaces', 0);
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin",
-        "http://localhost:4200");
+        "http://localhost:4200"
+        );
     next();
 });
 

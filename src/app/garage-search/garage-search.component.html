@@ -50,7 +50,7 @@
     </div>
 </mat-card>
 
-@if (this.saleData.length > 0) {
+@if (this.saleData.length > 0 && this.dataFetched) {
     <div class="report-container">
         <div class="results-found">
             <p>{{ this.saleData.length }} results found</p>
@@ -60,5 +60,9 @@
                 <app-garage-items [saleData]="item"></app-garage-items>
             </mat-list>
         }
+    </div>
+} @else if (this.saleData.length === 0 && this.dataFetched) {
+    <div class="report-container">
+        <h1>No results found.</h1>
     </div>
 }

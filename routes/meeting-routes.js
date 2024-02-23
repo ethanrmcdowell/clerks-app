@@ -11,7 +11,7 @@ router.get('/search', (req, res) => {
 
   console.log(filters);
 
-  let queryString = "SELECT TOP 1000 * FROM index_hdr WHERE";
+  let queryString = "SELECT * FROM index_hdr WHERE";
 
   let firstFilter = false;
 
