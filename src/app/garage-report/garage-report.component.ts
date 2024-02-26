@@ -21,6 +21,10 @@ import { ApiService } from '../api.service';
 export class GarageReportComponent {
   constructor(private datePipe: DatePipe, private snackBar: MatSnackBar, private apiService: ApiService) {}
 
+  dataFetched: boolean = false;
+  reportData: any[] = [];
+  displayedColumns: string[] = ['Section', 'Name', 'Address', 'Start Date', 'End Date', 'Organization'];
+
   reportForm = new FormGroup({
     startDate: new FormControl('', Validators.required),
     endDate: new FormControl('', Validators.required),
@@ -42,8 +46,15 @@ export class GarageReportComponent {
     } else {
       console.log(this.reportForm.value);
       this.apiService.reportGarage(this.reportForm.value).subscribe(data => {
-        console.log(data);
+        let results = (data as any)[0];
+        this.reportData = results;
+        console.log(this.reportData);
+        this.dataFetched = true;
       });
     }
+  }
+
+  formatDate(date: any) {
+    return this.datePipe.transform(date, "yyyy-MM-dd");
   }
 }

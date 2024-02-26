@@ -1,4 +1,4 @@
-<mat-card class="garage-card">
+<mat-card class="garage-card noprint">
     <h1>Enter date range:</h1>
     <div [formGroup]="reportForm">
         <mat-form-field>
@@ -18,3 +18,39 @@
         </div>
     </div>
 </mat-card>
+
+@if (dataFetched) {
+    <div class="printOnly">
+        <h1 class="printText">Garage Sales between {{ reportForm.get('formatStartDate')?.value }} & {{ reportForm.get('formatEndDate')?.value }}</h1>
+    </div>
+
+    <table mat-table [dataSource]="reportData" class="mat-elevation-z8">
+        <ng-container matColumnDef="Section">
+            <th mat-header-cell *matHeaderCellDef>Section</th>
+            <td mat-cell *matCellDef="let element">{{ element.section }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let element">{{ element.street_addr }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Start Date">
+            <th mat-header-cell *matHeaderCellDef>Start Date</th>
+            <td mat-cell *matCellDef="let element">{{ formatDate(element.sale_date) }}</td>
+        </ng-container>
+        <ng-container matColumnDef="End Date">
+            <th mat-header-cell *matHeaderCellDef>End Date</th>
+            <td mat-cell *matCellDef="let element">{{ formatDate(element.end_date) }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Organization">
+            <th mat-header-cell *matHeaderCellDef>Organization</th>
+            <td mat-cell *matCellDef="let element">{{ element.org_name }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+}

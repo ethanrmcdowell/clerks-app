@@ -18,3 +18,9 @@ mat-toolbar {
 .header-spacer {
     width: 250px;
 }
+
+@media print {
+    .noprint {
+        display: none;
+    }
+}

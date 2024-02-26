@@ -21,3 +21,30 @@ button {
     background-color: #3f51b5 !important;
     color: white !important;
 }
+
+.printOnly {
+    display: none;
+    width: 100%;
+    margin: 20px;
+}
+
+.printText {
+    text-align: center;
+}
+
+@media print {
+    .noprint {
+        display: none;
+    }
+
+    .printOnly {
+        display: inline;
+    }
+
+    @page {
+        size: auto;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 50px;
+    }
+}

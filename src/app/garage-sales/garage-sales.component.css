@@ -11,3 +11,9 @@
         padding: 20px;
     }
 }
+
+@media print {
+    .noprint {
+        display: none;
+    }
+}
