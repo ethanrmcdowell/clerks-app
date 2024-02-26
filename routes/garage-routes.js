@@ -66,10 +66,10 @@ router.get('/search', (req, res) => {
         .catch((err) => {
             console.log(err);
             res.status(500).send('Internal Server Error');
-          })
-          .finally(() => {
+        })
+        .finally(() => {
             sql.close();
-          });
+        });
 });
 
 // route for adding a new garage sale records
@@ -88,6 +88,30 @@ router.get('/add', (req, res) => {
     console.log(queryString);
 
     // DB account isn't set up for adding/updating records yet, not fully implemented yet...
+});
+
+router.get('/report', (req, res) => {
+    const filters = req.query;
+
+    let queryString = "SELECT * FROM garage_sale WHERE sale_date BETWEEN '" + filters.startDate + "' AND '" + filters.endDate + "'";
+
+    console.log(queryString);
+
+    sql.connect(sqlConfig)
+    .then(() => {
+        const request = new sql.Request();
+        return request.query(queryString);
+    })
+    .then((recordset) => {
+        res.json(recordset.recordsets);
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+    })
+    .finally(() => {
+        sql.close();
+    });
 });
 
 module.exports = router;

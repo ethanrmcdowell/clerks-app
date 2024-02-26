@@ -3,6 +3,7 @@
     <mat-radio-group [(ngModel)]="garageSelected">
         <mat-radio-button color="primary" value="search">Search</mat-radio-button>
         <mat-radio-button color="primary" value="add">Add</mat-radio-button>
+        <mat-radio-button color="primary" value="report">Report</mat-radio-button>
     </mat-radio-group>
 </section>
 
@@ -10,4 +11,6 @@
     <app-garage-search></app-garage-search>
 } @else if (this.garageSelected === "add") {
     <app-garage-add></app-garage-add>
+} @else if (this.garageSelected === "report") {
+    <app-garage-report></app-garage-report>
 }

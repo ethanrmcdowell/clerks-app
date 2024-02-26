@@ -1,0 +1,20 @@
+<mat-card class="garage-card">
+    <h1>Enter date range:</h1>
+    <div [formGroup]="reportForm">
+        <mat-form-field>
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+        </mat-form-field>
+        <div class="button-container">
+            <button mat-raised-button (click)="generateReport()">Generate Report</button>
+        </div>
+    </div>
+</mat-card>

@@ -24,6 +24,19 @@ export class ApiService {
     );
   }
 
+  reportGarage(data: any) {
+    const params = {
+      startDate: data.formatStartDate,
+      endDate: data.formatEndDate,
+    }
+
+    console.log("PARAMS", params);
+
+    return this.http.get(
+      'http://localhost:3000/api/garage/report', { params }
+    );
+  }
+
   updateGarage(data: any) {
     console.log("DATA", data);
   }

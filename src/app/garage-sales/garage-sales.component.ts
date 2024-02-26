@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { GarageSearchComponent } from "../garage-search/garage-search.component";
 import { GarageAddComponent } from '../garage-add/garage-add.component';
+import { GarageReportComponent } from '../garage-report/garage-report.component';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { GarageAddComponent } from '../garage-add/garage-add.component';
     standalone: true,
     templateUrl: './garage-sales.component.html',
     styleUrl: './garage-sales.component.css',
-    imports: [MatRadioModule, FormsModule, MatCardModule, GarageSearchComponent, GarageAddComponent]
+    imports: [MatRadioModule, FormsModule, MatCardModule, GarageSearchComponent, GarageAddComponent, GarageReportComponent]
 })
 export class GarageSalesComponent {
   constructor(private datePipe: DatePipe, private apiService: ApiService) {};
