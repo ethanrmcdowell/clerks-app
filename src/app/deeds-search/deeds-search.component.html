@@ -55,6 +55,7 @@
         <div class="results-found">
             <p>{{ this.deedData.length }} results found</p>
         </div>
+        <app-deeds-items [deedData]="this.deedData"></app-deeds-items>
     </div>
 } @else if (this.deedData.length === 0 && this.dataFetched) {
     <div class="report-container">

@@ -10,11 +10,13 @@ import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { distinctUntilChanged } from 'rxjs';
+import { MatListModule } from '@angular/material/list';
+import { DeedsItemsComponent } from '../deeds-items/deeds-items.component';
 
 @Component({
   selector: 'app-deeds-search',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, MatCardModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule],
+  imports: [DeedsItemsComponent, FormsModule, ReactiveFormsModule, MatListModule, MatCardModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule],
   templateUrl: './deeds-search.component.html',
   styleUrl: './deeds-search.component.css'
 })
@@ -73,23 +75,23 @@ export class DeedsSearchComponent {
     console.log(this.searchForm.value);
 
        // Check if the form is valid & ensure there's at least one filter being used
-       if (!this.allFieldsEmpty() && this.searchForm.valid) {
+      //  if (!this.allFieldsEmpty() && this.searchForm.valid) {
         this.apiService.searchDeeds(this.searchForm.value).subscribe(data => {
           this.deedData = (data as any)[0];
           this.dataFetched = true;
     
           console.log(this.deedData);
         });
-      } else if (this.allFieldsEmpty()) {
-        let message = "Please enter at least one filter before searching.";
-        this.errorMessage(message);
-      } else if (this.searchForm.get("startDate")?.valid || this.searchForm.get("endDate")?.valid) {
-        let message = "Error, please check that both start and end date are entered.";
-        this.errorMessage(message);
-      } else {
-        let message = "Error, please check your filters before submitting.";
-        this.errorMessage(message);
-      }
+      // } else if (this.allFieldsEmpty()) {
+      //   let message = "Please enter at least one filter before searching.";
+      //   this.errorMessage(message);
+      // } else if (this.searchForm.get("startDate")?.valid || this.searchForm.get("endDate")?.valid) {
+      //   let message = "Error, please check that both start and end date are entered.";
+      //   this.errorMessage(message);
+      // } else {
+      //   let message = "Error, please check your filters before submitting.";
+      //   this.errorMessage(message);
+      // }
   }
 
   allFieldsEmpty() {
