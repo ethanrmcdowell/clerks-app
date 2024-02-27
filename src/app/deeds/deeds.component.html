@@ -1,1 +1,13 @@
-<p>deeds works!</p>
+<section class="deeds-header">
+    <h1>Deeds, Easements, & Agreements</h1>
+    <mat-radio-group [(ngModel)]="deedSelected">
+        <mat-radio-button color="primary" value="search">Search</mat-radio-button>
+        <mat-radio-button color="primary" value="add">Add</mat-radio-button>
+    </mat-radio-group>
+</section>
+
+@if (this.deedSelected === "search") {
+    <app-deeds-search></app-deeds-search>
+} @else if (this.deedSelected === "add") {
+    <app-deeds-add></app-deeds-add>
+}

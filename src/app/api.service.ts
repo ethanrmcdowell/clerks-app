@@ -74,6 +74,23 @@ export class ApiService {
 
     return this.http.get(
       'http://localhost:3000/api/meeting/search', { params }
-      );
+    );
+  }
+
+  searchDeeds(data: any) {
+    const params = {
+      startDate: data.formatStartDate,
+      endDate: data.formatEndDate,
+      sidwell: data.sidwell,
+      liber: data.liber,
+      pageStart: data.pageStart,
+      pageEnd: data.pageEnd,
+      grantor: data.grantor,
+      description: data.description
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/deed/search', { params }
+    );
   }
 }

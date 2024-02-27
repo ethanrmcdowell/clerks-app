@@ -1,0 +1,19 @@
+.deeds-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 15px 0;
+    h1 {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 20px;
+    }
+}
+
+@media print {
+    .deeds-header mat-radio-group {
+        display: none;
+    }
+}

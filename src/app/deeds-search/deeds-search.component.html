@@ -1,0 +1,63 @@
+<mat-card class="deeds-card">
+    <div [formGroup]="searchForm">
+        <div>
+            <mat-form-field>
+                <mat-label>Document Date Start</mat-label>
+                <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+                <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Document Date End</mat-label>
+                <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
+                <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Sidwell</mat-label>
+                <input matInput formControlName="sidwell">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Liber</mat-label>
+                <input matInput formControlName="liber">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Page Start</mat-label>
+                <input matInput formControlName="pageStart">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Page End</mat-label>
+                <input matInput formControlName="pageEnd">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Grantor</mat-label>
+                <input matInput formControlName="grantor">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description Keyword</mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="button-container">
+            <button mat-raised-button (click)="searchData()">Search</button>
+        </div>
+    </div>
+</mat-card>
+
+@if (this.deedData.length > 0 && this.dataFetched) {
+    <div class="report-container">
+        <div class="results-found">
+            <p>{{ this.deedData.length }} results found</p>
+        </div>
+    </div>
+} @else if (this.deedData.length === 0 && this.dataFetched) {
+    <div class="report-container">
+        <h1>No results found.</h1>
+    </div>
+}
