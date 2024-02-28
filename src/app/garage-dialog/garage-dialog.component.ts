@@ -5,12 +5,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { ApiService } from '../api.service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @Component({
   selector: 'app-garage-dialog',
   standalone: true,
-  imports: [MatInputModule, MatDatepickerModule, FormsModule, MatButtonModule],
+  imports: [MatInputModule, MatDatepickerModule, FormsModule, MatButtonModule, MatNativeDateModule],
   templateUrl: './garage-dialog.component.html',
   styleUrl: './garage-dialog.component.css'
 })

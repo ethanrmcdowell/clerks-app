@@ -1,1 +1,33 @@
-<p>meetings-dialog works!</p>
+<div class="dialog-container">
+    <div class="input-container">
+        <mat-form-field>
+            <!-- add ID number field which is disabled -->
+            <mat-label>Meeting Date</mat-label>
+            <input matInput [matDatepicker]="pickerStart" [(ngModel)]="data.entry_date">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Reference</mat-label>
+            <input matInput [(ngModel)]="data.reference">
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field class="text-area">
+            <mat-label>Sub-Reference</mat-label>
+            <textarea matInput [(ngModel)]="data.sub_ref1"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field class="text-area">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="data.description"></textarea>
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="button-container">
+    <button mat-raised-button class="button-update" (click)="updateSale()">Update</button>
+    <button mat-raised-button class="button-delete" (click)="deleteSale()">Delete</button>
+    <button mat-raised-button class="button-cancel" (click)="cancelDialog()">Cancel</button>
+</div>
