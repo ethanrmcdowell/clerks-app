@@ -74,7 +74,7 @@ router.get('/search', (req, res) => {
 
 // route for adding a new garage sale records
 router.get('/add', (req, res) => {
-    console.log("ADD ROUTE~~");
+    console.log("GARAGE SALE ADD ROUTE~~");
 
     const filters = req.query;
 

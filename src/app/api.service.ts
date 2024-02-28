@@ -77,6 +77,20 @@ export class ApiService {
     );
   }
 
+  addMeetings(data: any) {
+    const params = {
+      meetingDate: data.formatDate,
+      reference: data.reference,
+      subReference: data.subReference,
+      description: data.description,
+      timestamp: data.timestamp
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/meeting/add', { params }
+    )
+  }
+
   searchDeeds(data: any) {
     const params = {
       startDate: data.formatStartDate,

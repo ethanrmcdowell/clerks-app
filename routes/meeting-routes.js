@@ -55,4 +55,19 @@ router.get('/search', (req, res) => {
     });
 });
 
+// route for adding new meeting records
+router.get('/add', (req, res) => {
+  console.log("MEETING ADD ROUTE~~");
+
+  const filters = req.query;
+
+  let queryString = "INSERT INTO index_hdr (entry_date, reference, sub_ref1, datestamp," +
+    " description) VALUES ('" + filters.meetingDate + "', '" + filters.reference + "', '" +
+    filters.subReference + "', '" + filters.timestamp + "', '" + filters.description + "');";
+
+    console.log(queryString);
+
+    // DB account is currently read-only, no add/delete/update implemented yet...
+});
+
 module.exports = router;

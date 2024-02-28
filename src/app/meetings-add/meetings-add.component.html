@@ -1,1 +1,27 @@
-<p>meetings-add works!</p>
+<mat-card class="meetings-card" [formGroup]="addForm">
+    <div>
+        <mat-form-field>
+            <mat-label>Meeting Date</mat-label>
+            <input matInput [matDatepicker]="pickerStart" formControlName="meetingDate">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Reference</mat-label>
+            <input matInput formControlName="reference">
+        </mat-form-field>
+    </div>
+    <div class="add-full">
+        <mat-form-field class="form-full">
+            <mat-label>Sub-Reference</mat-label>
+            <input matInput formControlName="subReference">
+        </mat-form-field>
+        <mat-form-field class="form-full">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="button-container">
+        <button mat-raised-button class="button-add" (click)="addMeeting()">Add</button>
+    </div>
+</mat-card>
