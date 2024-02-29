@@ -25,6 +25,7 @@ button {
 .report-container {
     width: 60%;
     margin: 25px auto;
+    padding-bottom: 500px;
 }
 
 .results-found {

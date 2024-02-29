@@ -1,1 +1,75 @@
-<p>deeds-dialog works!</p>
+<div class="dialog-container">
+    <div class="input-container">
+        <!-- USE TEST LIBER 58398 -->
+        <mat-form-field>
+            <mat-label>Document Date</mat-label>
+            <input matInput [matDatepicker]="pickerDoc" [(ngModel)]="data.doc_date">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerDoc"></mat-datepicker-toggle>
+            <mat-datepicker #pickerDoc></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Record Date</mat-label>
+            <input matInput [matDatepicker]="pickerRec" [(ngModel)]="data.rec_date">
+            <mat-datepicker-toggle matIconSuffix [for]="pickerRec"></mat-datepicker-toggle>
+            <mat-datepicker #pickerRec></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field>
+            <mat-label>Sidwell</mat-label>
+            <input matInput [(ngModel)]="data.sidwell">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Liber</mat-label>
+            <input matInput [(ngModel)]="data.liber">
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field>
+            <mat-label>Grantee</mat-label>
+            <input matInput [(ngModel)]="data.grantee">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Grantor</mat-label>
+            <input matInput [(ngModel)]="data.grantor">
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field>
+            <mat-label>Page Number</mat-label>
+            <input matInput [(ngModel)]="data.page_no">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Section</mat-label>
+            <input matInput [(ngModel)]="data.section">
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field>
+            <mat-label>Use</mat-label>
+            <input matInput [(ngModel)]="data.use">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Document Type</mat-label>
+            <input matInput [(ngModel)]="data.doc_type">
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field class="text-area">
+            <mat-label>Property Description</mat-label>
+            <textarea matInput [(ngModel)]="data.propdesc"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field class="text-area">
+            <mat-label>Text Description</mat-label>
+            <textarea matInput [(ngModel)]="data.text_desc"></textarea>
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="button-container">
+    <button mat-raised-button class="button-update" (click)="updateDoc()">Update</button>
+    <button mat-raised-button class="button-delete" (click)="deleteDoc()">Delete</button>
+    <button mat-raised-button class="button-cancel" (click)="cancelDialog()">Cancel</button>
+</div>

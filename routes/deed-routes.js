@@ -45,7 +45,7 @@ router.get('/search', (req, res) => {
     firstFilter = true;
   }
 
-  queryString += "ORDER BY doc_date;";
+  queryString += " ORDER BY doc_date;";
 
   console.log(queryString);
 
