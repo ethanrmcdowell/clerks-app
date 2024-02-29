@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    margin-top: 25px;
 }
 
 .input-container {
@@ -19,13 +20,13 @@ mat-form-field {
 
 .text-area {
     width: 620px;
-    height: 175px;
 }
 
 .button-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    padding: 50px;
 
     button {
         margin: 10px 3px 40px 3px;

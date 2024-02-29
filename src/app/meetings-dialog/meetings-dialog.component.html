@@ -1,13 +1,18 @@
 <div class="dialog-container">
     <div class="input-container">
         <mat-form-field>
-            <!-- add ID number field which is disabled -->
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="data.idno" disabled>
+        </mat-form-field>
+        <mat-form-field>
             <mat-label>Meeting Date</mat-label>
             <input matInput [matDatepicker]="pickerStart" [(ngModel)]="data.entry_date">
             <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
             <mat-datepicker #pickerStart></mat-datepicker>
         </mat-form-field>
-        <mat-form-field>
+    </div>
+    <div class="input-container">
+        <mat-form-field class="text-area">
             <mat-label>Reference</mat-label>
             <input matInput [(ngModel)]="data.reference">
         </mat-form-field>
