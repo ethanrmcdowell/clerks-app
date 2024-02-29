@@ -21,6 +21,6 @@ export class AppComponent {
   constructor(private apiService: ApiService, private router: Router) {};
 
   ngOnInit() {
-    this.router.navigate(['/meetings']);
+    this.router.navigate(['/deeds']);
   }
 }
