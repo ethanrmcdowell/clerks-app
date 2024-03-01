@@ -42,5 +42,9 @@ export class DeedsAddComponent {
     this.addForm.get('recDateFormat')?.setValue(rec === null ? '' : rec);
 
     console.log("Add Form ->", this.addForm.value);
+
+    this.apiService.addDeeds(this.addForm.value).subscribe(data => {
+      console.log(data);
+    });
   }
 }

@@ -66,4 +66,19 @@ router.get('/search', (req, res) => {
       });
 });
 
+// route for adding new deed (etc) records
+router.get('/add', (req, res) => {
+  console.log("DEEDS ADD ROUTE~~");
+
+  const filters = req.query;
+
+  let queryString = "INSERT INTO deeds (sidwell, liber, page_no, grantor, grantee, section, propdesc, use, " + 
+    "doc_type, doc_date, rec_date, text_desc) VALUES ('" + filters.sidwell + "', '" + filters.liber + "', '" + 
+    filters.pageNo + "', '" + filters.grantor + "', '" + filters.grantee + "', '" + filters.section + "', '" + 
+    filters.propDescription + "', '" + filters.use + "', '" + filters.docType + "', '" + filters.docDate + "', '" + 
+    filters.recDate + "', '" + filters.textDescription + "');";
+
+    console.log(queryString);
+});
+
 module.exports = router;
