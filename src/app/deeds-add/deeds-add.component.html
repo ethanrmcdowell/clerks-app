@@ -1,1 +1,72 @@
-<p>deeds-add works!</p>
+<!-- TEST LIBER 58313 -->
+<mat-card class="deeds-card" [formGroup]="addForm">
+    <div>
+        <mat-form-field>
+            <mat-label>Document Date</mat-label>
+            <input matInput [matDatepicker]="docDate" formControlName="docDate">
+            <mat-datepicker-toggle matIconSuffix [for]="docDate"></mat-datepicker-toggle>
+            <mat-datepicker #docDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Record Date</mat-label>
+            <input matInput [matDatepicker]="recDate" formControlName="recDate">
+            <mat-datepicker-toggle matIconSuffix [for]="recDate"></mat-datepicker-toggle>
+            <mat-datepicker #recDate></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Sidwell</mat-label>
+            <input matInput formControlName="sidwell">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Liber</mat-label>
+            <input matInput formControlName="liber">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Grantee</mat-label>
+            <input matInput formControlName="grantee">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Grantor</mat-label>
+            <input matInput formControlName="grantor">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Page Number</mat-label>
+            <input matInput formControlName="pageNo">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Section</mat-label>
+            <input matInput formControlName="section">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Use</mat-label>
+            <input matInput formControlName="use">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Document Type</mat-label>
+            <input matInput formControlName="docType">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="text-area">
+            <mat-label>Property Description</mat-label>
+            <textarea matInput formControlName="propDescription"></textarea>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="text-area">
+            <mat-label>Text Description</mat-label>
+            <textarea matInput formControlName="textDescription"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="button-container">
+        <button mat-raised-button (click)="addDeed()">Add</button>
+    </div>
+</mat-card>
