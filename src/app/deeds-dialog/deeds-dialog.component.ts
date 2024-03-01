@@ -28,7 +28,9 @@ export class DeedsDialogComponent {
   }
 
   deleteDeed() {
-
+    this.apiService.deleteDeed(this.data).subscribe(results => {
+      console.log(results);
+    });
   }
 
   cancelDialog() {

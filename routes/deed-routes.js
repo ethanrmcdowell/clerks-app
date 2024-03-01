@@ -81,7 +81,7 @@ router.get('/add', (req, res) => {
     console.log(queryString);
 });
 
-// route for editing an existing deed (etc)
+// route for editing an existing deed
 router.get('/edit', (req, res) => {
   console.log("DEEDS EDIT ROUTE~~");
 
@@ -92,6 +92,17 @@ router.get('/edit', (req, res) => {
     "', propdesc = '" + filters.propDescription + "', use = '" + filters.use + "', doc_type = '" + filters.docType + "', doc_date = '"
     + filters.docDate + "', rec_date = '" + filters.recDate + "', text_desc = '" + filters.textDescription + "' WHERE idno = '"
     + filters.idNo + "';";
+
+  console.log(queryString);
+});
+
+// route for deleing an existing deed
+router.get('/delete', (req, res) => {
+  console.log("DEEDS DELETE ROUTE~~");
+
+  const idNo = req.query.idNo;
+
+  let queryString = "DELETE FROM deeds WHERE idno = '" + idNo + "';";
 
   console.log(queryString);
 });

@@ -153,4 +153,14 @@ export class ApiService {
       'http://localhost:3000/api/deed/edit', { params }
     );
   }
+
+  deleteDeed(data: any) {
+    const params = {
+      idNo: data.idno,
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/deed/delete', { params }
+    );
+  }
 }
