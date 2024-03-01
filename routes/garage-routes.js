@@ -16,9 +16,9 @@ router.get('/search', (req, res) => {
         firstFilter = true;
     }
 
-    if (filters.permitNum !== '') {
+    if (filters.permitNo !== '') {
         if (firstFilter) queryString += " AND";
-        queryString += " permit_no ='" + filters.permitNum + "'";
+        queryString += " permit_no ='" + filters.permitNo + "'";
         firstFilter = true;
     }
 
@@ -80,18 +80,18 @@ router.get('/add', (req, res) => {
 
     let queryString = "INSERT INTO garage_sale (permit_no, name, street_addr, zip, section, " +
         "phone, sale_date, end_date, org_name, org_addr, org_phone, uid, datestamp) VALUES ('" +
-        filters.permitNum + "', '" + filters.name + "', '" + filters.address + "', '" + filters.zip +
+        filters.permitNo + "', '" + filters.name + "', '" + filters.address + "', '" + filters.zip +
         "', '" + filters.section + "', '" + filters.telephone + "', '" + filters.startDate  + "', '" + 
         filters.endDate + "', '" + filters.orgName + "', '" + filters.orgAddress + "', '" + filters.orgTelephone +
         "', 'emcdowell', '" + filters.timestamp + "';"; 
         
     console.log(queryString);
-
-    // DB account isn't set up for adding/updating records yet, not fully implemented yet...
 });
 
 // route for getting garage sale date report
 router.get('/report', (req, res) => {
+    console.log("GARAGE SALE REPORT ROUTE~~");
+
     const filters = req.query;
 
     let queryString = "SELECT * FROM garage_sale WHERE sale_date BETWEEN '" + filters.startDate + "' AND '" + filters.endDate + "'";
@@ -114,5 +114,13 @@ router.get('/report', (req, res) => {
         sql.close();
     });
 });
+
+router.get('/edit', (req, res) => {
+    console.log("GARAGE SALE EDIT ROUTE~~");
+
+    const filters = req.query;
+
+    console.log(filters);
+})
 
 module.exports = router;

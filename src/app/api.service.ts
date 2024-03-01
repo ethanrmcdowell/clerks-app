@@ -12,7 +12,7 @@ export class ApiService {
     const params = {
       startDate: data.formatStartDate,
       endDate: data.formatEndDate,
-      permitNum: data.permitNum,
+      permitNo: data.permitNum,
       name: data.name,
       address: data.address,
       section: data.section,
@@ -39,14 +39,31 @@ export class ApiService {
   }
 
   updateGarage(data: any) {
-    console.log("DATA", data);
+    const params = {
+      startDate: data.sale_date,
+      endDate: data.end_date,
+      permitNo: data.permit_no,
+      name: data.name,
+      address: data.street_addr,
+      zip: data.zip,
+      telephone: data.phone,
+      section: data.section,
+      orgName: data.org_name,
+      orgAddress: data.org_addr,
+      orgTelephone: data.org_phone,
+      notes: data.notes
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/garage/edit', { params }
+    );
   }
 
   addGarage(data: any) {
     const params = {
       startDate: data.formatStartDate,
       endDate: data.formatEndDate,
-      permitNum: data.permitNum,
+      permitNo: data.permitNum,
       name: data.name,
       address: data.address,
       zip: data.zip,

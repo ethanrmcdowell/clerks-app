@@ -19,11 +19,16 @@ export class GarageDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<GarageDialogComponent>, private apiService: ApiService) {}
 
   ngOnInit() {
+    this.data["notes"] = '';
     console.log(this.data);
   }
 
   updateSale() {
-    
+    // USE GARAGE SALE PERMIT 24231
+    console.log("Updating sale...");
+    this.apiService.updateGarage(this.data).subscribe(response => {
+      console.log(response);
+    });
   }
 
   deleteSale() {
