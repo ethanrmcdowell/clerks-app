@@ -21,11 +21,13 @@ export class DeedsDialogComponent {
     console.log("DATA ->", this.data);
   };
 
-  updateDoc() {
-
+  editDeed() {
+    this.apiService.editDeeds(this.data).subscribe(results => {
+      console.log(results);
+    })
   }
 
-  deleteDoc() {
+  deleteDeed() {
 
   }
 

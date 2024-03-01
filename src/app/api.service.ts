@@ -131,4 +131,26 @@ export class ApiService {
       'http://localhost:3000/api/deed/add', { params }
     );
   }
+
+  editDeeds(data: any) {
+    const params = {
+      docDate: data.doc_date,
+      recDate: data.rec_date,
+      sidwell: data.sidwell,
+      liber: data.liber,
+      grantee: data.grantee,
+      grantor: data.grantor,
+      pageNo: data.page_no,
+      section: data.section,
+      use: data.use,
+      docType: data.doc_type,
+      propDescription: data.propdesc,
+      textDescription: data.text_desc,
+      idNo: data.idno
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/deed/edit', { params }
+    );
+  }
 }

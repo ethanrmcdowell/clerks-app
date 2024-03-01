@@ -90,6 +90,7 @@ router.get('/add', (req, res) => {
     // DB account isn't set up for adding/updating records yet, not fully implemented yet...
 });
 
+// route for getting garage sale date report
 router.get('/report', (req, res) => {
     const filters = req.query;
 

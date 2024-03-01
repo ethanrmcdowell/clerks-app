@@ -81,4 +81,19 @@ router.get('/add', (req, res) => {
     console.log(queryString);
 });
 
+// route for editing an existing deed (etc)
+router.get('/edit', (req, res) => {
+  console.log("DEEDS EDIT ROUTE~~");
+
+  const filters = req.query;
+
+  let queryString = "UPDATE deeds SET sidwell = '" + filters.sidwell + "', liber = '" + filters.liber + "', page_no = '" + 
+    filters.pageNo + "', grantor = '" + filters.grantor + "', grantee = '" + filters.grantee + "', section = '" + filters.section +
+    "', propdesc = '" + filters.propDescription + "', use = '" + filters.use + "', doc_type = '" + filters.docType + "', doc_date = '"
+    + filters.docDate + "', rec_date = '" + filters.recDate + "', text_desc = '" + filters.textDescription + "' WHERE idno = '"
+    + filters.idNo + "';";
+
+  console.log(queryString);
+});
+
 module.exports = router;
