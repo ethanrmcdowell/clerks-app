@@ -3,13 +3,9 @@ const router = express.Router();
 const sql = require('mssql');
 const sqlConfig = require('../sqlConfig');
 
+// route for searching meetings
 router.get('/search', (req, res) => {
-  // sql table fields: entry_date, idno, description
-  // filters: startDate, endDate, keyword1, keyword2, idNumber
-
   const filters = req.query;
-
-  console.log(filters);
 
   let queryString = "SELECT * FROM index_hdr WHERE";
 
@@ -38,6 +34,8 @@ router.get('/search', (req, res) => {
     firstFilter = true;
   }
 
+  console.log(queryString);
+
   sql.connect(sqlConfig)
     .then(() => {
       const request = new sql.Request();
@@ -65,9 +63,31 @@ router.get('/add', (req, res) => {
     " description) VALUES ('" + filters.meetingDate + "', '" + filters.reference + "', '" +
     filters.subReference + "', '" + filters.timestamp + "', '" + filters.description + "');";
 
-    console.log(queryString);
+  console.log(queryString);
+});
 
-    // DB account is currently read-only, no add/delete/update implemented yet...
+// route for editing existing meeting
+router.get('/edit', (req, res) => {
+  console.log("MEETING EDIT ROUTE~~");
+
+  const filters = req.query;
+
+  let queryString = "UPDATE index_hdr SET entry_date = '" + filters.meetingDate + "', reference = '" +
+    filters.reference + "', sub_ref1 = '" + filters.subReference + "', description = '" +
+    filters.description + "' WHERE idno = '" + filters.idNo + "';";
+
+  console.log(queryString);
+});
+
+// route for deleting existing meeting
+router.get('/delete', (req, res) => {
+  console.log("MEETING DELETE ROUTE~~");
+
+  const filters = req.query;
+
+  let queryString = "DELETE FROM index_hdr WHERE idno = '" + filters.idNo + "';";
+
+  console.log(queryString);
 });
 
 module.exports = router;

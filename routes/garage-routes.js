@@ -72,7 +72,7 @@ router.get('/search', (req, res) => {
         });
 });
 
-// route for adding a new garage sale records
+// route for adding a new garage sale
 router.get('/add', (req, res) => {
     console.log("GARAGE SALE ADD ROUTE~~");
 
@@ -88,7 +88,7 @@ router.get('/add', (req, res) => {
     console.log(queryString);
 });
 
-// route for getting garage sale date report
+// route for getting garage sale by date report
 router.get('/report', (req, res) => {
     console.log("GARAGE SALE REPORT ROUTE~~");
 
@@ -115,6 +115,7 @@ router.get('/report', (req, res) => {
     });
 });
 
+// route for editing existing garage sale
 router.get('/edit', (req, res) => {
     console.log("GARAGE SALE EDIT ROUTE~~");
 
@@ -129,6 +130,7 @@ router.get('/edit', (req, res) => {
     console.log(queryString);
 });
 
+// route for deleting existing garage sale
 router.get('/delete', (req, res) => {
     console.log("GARAGE SALE DELETE ROUTE~~");
 

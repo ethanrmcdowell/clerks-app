@@ -17,17 +17,23 @@ import { MatNativeDateModule } from '@angular/material/core';
 export class MeetingsDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<MeetingsDialogComponent>, private apiService: ApiService) {}
 
+  // USE MEETING ID 19415
+
   ngOnInit() {
     console.log("MEETING ->", this.data);
   }
 
-  updateSale() {
-    
+  editMeeting() {
+    this.apiService.editMeetings(this.data).subscribe(result => {
+      console.log(result);
+    });
   }
 
-  deleteSale() {
+  deleteMeeting() {
     if (window.confirm("Are you sure you would like to delete this meeting? This action cannot be undone.")) {
-      console.log("Deleted (not really...)");
+      this.apiService.deleteMeetings(this.data).subscribe(result => {
+        console.log(result);
+      });
     }
   }
 

@@ -117,7 +117,31 @@ export class ApiService {
 
     return this.http.get(
       'http://localhost:3000/api/meeting/add', { params }
-    )
+    );
+  }
+
+  editMeetings(data: any) {
+    const params = {
+      meetingDate: data.entry_date,
+      reference: data.reference,
+      subReference: data.sub_ref1,
+      description: data.description,
+      idNo: data.idno
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/meeting/edit', { params }
+    );
+  }
+
+  deleteMeetings(data: any) {
+    const params = {
+      idNo: data.idno,
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/meeting/delete', { params }
+    );
   }
 
   // DEED API ENDPOINTS

@@ -3,6 +3,7 @@ const router = express.Router();
 const sql = require('mssql');
 const sqlConfig = require('../sqlConfig');
 
+// route for searching deeds
 router.get('/search', (req, res) => {
   const filters = req.query;
 
@@ -66,7 +67,7 @@ router.get('/search', (req, res) => {
       });
 });
 
-// route for adding new deed (etc) records
+// route for adding new deed records
 router.get('/add', (req, res) => {
   console.log("DEEDS ADD ROUTE~~");
 
