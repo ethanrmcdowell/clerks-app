@@ -12,7 +12,7 @@ export class ApiService {
     const params = {
       startDate: data.formatStartDate,
       endDate: data.formatEndDate,
-      permitNo: data.permitNum,
+      permitNo: data.permitNum.trim(),
       name: data.name,
       address: data.address,
       section: data.section,
@@ -42,7 +42,7 @@ export class ApiService {
     const params = {
       startDate: data.sale_date,
       endDate: data.end_date,
-      permitNo: data.permit_no,
+      permitNo: data.permit_no.trim(),
       name: data.name,
       address: data.street_addr,
       zip: data.zip,
@@ -63,7 +63,7 @@ export class ApiService {
     const params = {
       startDate: data.formatStartDate,
       endDate: data.formatEndDate,
-      permitNo: data.permitNum,
+      permitNo: data.permitNum.trim(),
       name: data.name,
       address: data.address,
       zip: data.zip,

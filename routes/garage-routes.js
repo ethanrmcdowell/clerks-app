@@ -120,7 +120,13 @@ router.get('/edit', (req, res) => {
 
     const filters = req.query;
 
-    console.log(filters);
+    let queryString = "UPDATE garage_sale SET name = '" + filters.name + "', street_addr = '" + filters.address +
+        "', zip = '" + filters.zip + "', section = '" + filters.section + "', phone = '" + filters.telephone +
+        "', sale_date = '" + filters.startDate + "', end_date = '" + filters.endDate + "', org_name = '" +
+        filters.orgName + "', org_addr = '" + filters.orgAddress + "', org_phone = '" + filters.orgTelephone +
+        "' WHERE permit_no = '" + filters.permitNo + "';";
+
+    console.log(queryString);
 })
 
 module.exports = router;
