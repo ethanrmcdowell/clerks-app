@@ -94,7 +94,8 @@ router.get('/report', (req, res) => {
 
     const filters = req.query;
 
-    let queryString = "SELECT * FROM garage_sale WHERE sale_date BETWEEN '" + filters.startDate + "' AND '" + filters.endDate + "'";
+    let queryString = "SELECT * FROM garage_sale WHERE sale_date BETWEEN '" + filters.startDate +
+        "' AND '" + filters.endDate + "'";
 
     console.log(queryString);
 
