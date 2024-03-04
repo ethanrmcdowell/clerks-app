@@ -33,7 +33,9 @@ export class GarageDialogComponent {
 
   deleteSale() {
     if (window.confirm("Are you sure you would like to delete the garage sale associated with the permit number " + this.data.permit_no.trim() + "? This action cannot be undone.")) {
-      console.log("Deleted (not really...)");
+      this.apiService.deleteGarage(this.data).subscribe(response => {
+        console.log(response);
+      })
     }
   }
 

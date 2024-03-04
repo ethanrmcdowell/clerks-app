@@ -81,6 +81,16 @@ export class ApiService {
     );
   }
 
+  deleteGarage(data: any) {
+    const params = {
+      permitNo: data.permit_no.trim(),
+    }
+
+    return this.http.get(
+      'http://localhost:3000/api/garage/delete', { params }
+    );
+  }
+
   // MEETING API ENDPOINTS
   searchMeetings(data: any) {
     const params = {

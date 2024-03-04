@@ -127,6 +127,16 @@ router.get('/edit', (req, res) => {
         "' WHERE permit_no = '" + filters.permitNo + "';";
 
     console.log(queryString);
-})
+});
+
+router.get('/delete', (req, res) => {
+    console.log("GARAGE SALE DELETE ROUTE~~");
+
+    const filters = req.query;
+
+    let queryString = "DELETE FROM garage_sale WHERE permit_no = '" + filters.permitNo + "';";
+
+    console.log(queryString);
+});
 
 module.exports = router;
