@@ -36,7 +36,7 @@ Ethan McDowell - ethan.r.mcdowell@gmail.com
 ![screenshot4]
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-url]: https://github.com/ethanrmcdowell/clerks-app/blob/main/LICENSE.txt
 [screenshot1]: ./src/assets/clerkapp0.PNG
 [screenshot2]: ./src/assets/clerkapp1.PNG
 [screenshot3]: ./src/assets/clerkapp2.PNG
