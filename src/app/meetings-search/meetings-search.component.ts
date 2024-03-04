@@ -115,6 +115,7 @@ export class MeetingsSearchComponent {
     const dialogRef = this.dialog.open(MeetingsDialogComponent, {
       width: '50%',
       height: '60%',
+      minWidth: '400px',
       data: item
     });
   }

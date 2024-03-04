@@ -45,3 +45,17 @@ mat-form-field {
     background-color: #ED7D31 !important;
     color: white !important;
 }
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
+        width: 100%;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    .text-area {
+        width: 100%;
+    }
+}

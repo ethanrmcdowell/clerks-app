@@ -16,6 +16,7 @@ button {
 
 .garage-card {
     width: 40%;
+    min-width: 350px;
     margin: 25px auto;
     padding: 20px;
     display: flex;
@@ -44,4 +45,14 @@ button {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 25px;
+}
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
+        width: 100%;
+    }
+
+    .garage-card div {
+        width: 100%;
+    }
 }

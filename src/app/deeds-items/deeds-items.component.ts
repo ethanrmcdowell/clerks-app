@@ -29,6 +29,7 @@ export class DeedsItemsComponent {
     const dialogRef = this.dialog.open(DeedsDialogComponent, {
       width: '50%',
       height: '60%',
+      minWidth: '400px',
       data: item,
     });
   }

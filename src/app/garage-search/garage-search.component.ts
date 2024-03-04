@@ -119,6 +119,7 @@ export class GarageSearchComponent {
     const dialogRef = this.dialog.open(GarageDialogComponent, {
       width: '50%',
       height: '60%',
+      minWidth: '400px',
       data: item
     });
   }

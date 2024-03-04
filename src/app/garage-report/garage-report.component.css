@@ -9,6 +9,7 @@ mat-form-field {
     padding: 20px;
     display: flex;
     align-items: center;
+    min-width: 350px;
 }
 
 .button-container {
@@ -46,5 +47,11 @@ button {
         margin-bottom: 0;
         margin-top: 0;
         padding: 50px;
+    }
+}
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
+        width: 100%;
     }
 }

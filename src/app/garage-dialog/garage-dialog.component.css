@@ -49,3 +49,20 @@ mat-form-field {
     background-color: #ED7D31 !important;
     color: white !important;
 }
+
+/* 24386 */
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
+        width: 100%;
+    }
+
+    .dialog-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+}

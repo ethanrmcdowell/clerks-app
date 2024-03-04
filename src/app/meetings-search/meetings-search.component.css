@@ -20,6 +20,7 @@ button {
     padding: 20px;
     display: flex;
     align-items: center;
+    min-width: 350px;
 }
 
 .report-container {
@@ -42,6 +43,12 @@ button {
     }
 
     .report-container {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
         width: 100%;
     }
 }

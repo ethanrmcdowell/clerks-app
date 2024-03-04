@@ -4,6 +4,7 @@
     padding: 20px;
     display: flex;
     align-items: center;
+    min-width: 350px;
 }
 
 mat-form-field {
@@ -29,4 +30,22 @@ mat-form-field {
 .button-add {
     background-color: #3f51b5 !important;
     color: white !important;
+}
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
+        width: 100%;
+    }
+
+    .form-full {
+        width: 100%;
+    }
+
+    .add-full {
+        width: 100%;
+    }
+
+    .form-half {
+        width: 100%;
+    }
 }

@@ -1,6 +1,6 @@
 <!-- TEST LIBER 58313 -->
 <mat-card class="deeds-card" [formGroup]="addForm">
-    <div>
+    <div class="form-div">
         <mat-form-field>
             <mat-label>Document Date</mat-label>
             <input matInput [matDatepicker]="docDate" formControlName="docDate">
@@ -14,7 +14,7 @@
             <mat-datepicker #recDate></mat-datepicker>
         </mat-form-field>
     </div>
-    <div>
+    <div class="form-div">
         <mat-form-field>
             <mat-label>Sidwell</mat-label>
             <input matInput formControlName="sidwell">
@@ -24,7 +24,7 @@
             <input matInput formControlName="liber">
         </mat-form-field>
     </div>
-    <div>
+    <div class="form-div">
         <mat-form-field>
             <mat-label>Grantee</mat-label>
             <input matInput formControlName="grantee">
@@ -34,7 +34,7 @@
             <input matInput formControlName="grantor">
         </mat-form-field>
     </div>
-    <div>
+    <div class="form-div">
         <mat-form-field>
             <mat-label>Page Number</mat-label>
             <input matInput formControlName="pageNo">
@@ -44,7 +44,7 @@
             <input matInput formControlName="section">
         </mat-form-field>
     </div>
-    <div>
+    <div class="form-div">
         <mat-form-field>
             <mat-label>Use</mat-label>
             <input matInput formControlName="use">
@@ -54,13 +54,13 @@
             <input matInput formControlName="docType">
         </mat-form-field>
     </div>
-    <div>
+    <div class="form-div">
         <mat-form-field class="text-area">
             <mat-label>Property Description</mat-label>
             <textarea matInput formControlName="propDescription"></textarea>
         </mat-form-field>
     </div>
-    <div>
+    <div class="form-div">
         <mat-form-field class="text-area">
             <mat-label>Text Description</mat-label>
             <textarea matInput formControlName="textDescription"></textarea>

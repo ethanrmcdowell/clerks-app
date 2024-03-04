@@ -20,6 +20,7 @@ button {
     padding: 20px;
     display: flex;
     align-items: center;
+    min-width: 350px;
 }
 
 .text-area {
@@ -35,4 +36,18 @@ button {
 
 .button-container {
     display: flex;
+}
+
+@media all and (max-width: 1667px) {
+    mat-form-field {
+        width: 100%;
+    }
+
+    .text-area {
+        width: 100%;
+    }
+
+    .form-div {
+        width: 100%;
+    }
 }
