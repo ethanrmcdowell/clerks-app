@@ -16,10 +16,10 @@ export class GarageItemsComponent {
 
   @Input() saleData: any;
 
-  ngOnInit() {
-    this.saleData.sale_date = this.datePipe.transform(this.saleData.sale_date, "yyyy-MM-dd");
-    this.saleData.end_date = this.datePipe.transform(this.saleData.end_date, "yyyy-MM-dd");
+  // ngOnInit() {
+  //   this.saleData.sale_date = this.datePipe.transform(this.saleData.sale_date, "yyyy-MM-dd");
+  //   this.saleData.end_date = this.datePipe.transform(this.saleData.end_date, "yyyy-MM-dd");
     
-  }
+  // }
 
 }

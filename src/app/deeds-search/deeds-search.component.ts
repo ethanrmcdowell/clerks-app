@@ -67,8 +67,8 @@ export class DeedsSearchComponent {
     this.dataFetched = false;
 
     // Transform date objects into yyyy-MM-dd to match DB fields
-    const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd", "GMT");
-    const end = this.datePipe.transform(this.searchForm.get('endDate')?.value, "yyyy-MM-dd", "GMT");
+    const start = this.datePipe.transform(this.searchForm.get('startDate')?.value, "yyyy-MM-dd", "en");
+    const end = this.datePipe.transform(this.searchForm.get('endDate')?.value, "yyyy-MM-dd", "en");
     this.searchForm.get('formatStartDate')?.setValue(start === null ? '' : start);
     this.searchForm.get('formatEndDate')?.setValue(end === null ? '' : end);
 
@@ -79,6 +79,20 @@ export class DeedsSearchComponent {
         this.apiService.searchDeeds(this.searchForm.value).subscribe(data => {
           this.deedData = (data as any)[0];
           this.dataFetched = true;
+
+          this.deedData.forEach(item => {
+            const docDateAsUTC = new Date(item.doc_date);
+            docDateAsUTC.setMinutes(docDateAsUTC.getMinutes() + docDateAsUTC.getTimezoneOffset());
+            item.doc_date = this.datePipe.transform(docDateAsUTC, "yyyy-MM-dd", "en");
+            item.doc_date += "T12:00:00";
+
+            const recDateAsUTC = new Date(item.rec_date);
+            recDateAsUTC.setMinutes(recDateAsUTC.getMinutes() + recDateAsUTC.getTimezoneOffset());
+            item.rec_date = this.datePipe.transform(recDateAsUTC, "yyyy-MM-dd", "en");
+            item.rec_date += "T12:00:00";
+          });
+
+          this.deedData.sort((a, b) => new Date(b.doc_date).getTime() - new Date(a.doc_date).getTime());
     
           console.log(this.deedData);
         });

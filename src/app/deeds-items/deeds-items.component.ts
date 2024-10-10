@@ -16,15 +16,6 @@ export class DeedsItemsComponent {
   @Input() deedData: any;
   displayedColumns: string[] = ['Document Date', 'Document Type', 'Sidwell', 'Liber', 'Page Number', 'Grantor'];
 
-  ngOnInit() {
-    this.deedData.forEach((item: {
-      rec_date: string | null; doc_date: string | null; 
-}) => {
-      item.doc_date = this.datePipe.transform(item.doc_date, "yyyy-MM-dd");
-      item.rec_date = this.datePipe.transform(item.rec_date, "yyyy-MM-dd");
-    });
-  }
-
   deedsDialog(item: any) {
     const dialogRef = this.dialog.open(DeedsDialogComponent, {
       width: '50%',

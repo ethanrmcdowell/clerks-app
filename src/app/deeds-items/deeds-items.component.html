@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="deedData" class="mat-elevation-z8">
     <ng-container matColumnDef="Document Date">
         <th mat-header-cell *matHeaderCellDef>Document Date</th>
-        <td mat-cell *matCellDef="let element" (click)="deedsDialog(element)">{{ element.doc_date }}</td>
+        <td mat-cell *matCellDef="let element" (click)="deedsDialog(element)">{{ element.doc_date.split('T')[0] }}</td>
     </ng-container>
     <ng-container matColumnDef="Document Type">
         <th mat-header-cell *matHeaderCellDef>Document Type</th>

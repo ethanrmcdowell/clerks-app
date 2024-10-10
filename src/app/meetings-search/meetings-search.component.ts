@@ -77,9 +77,15 @@ export class MeetingsSearchComponent {
             // remove \r\n and fix date fields
             meeting.description = meeting.description ? meeting.description.replace(/\r\n/g, ' ') : '';
             meeting.sub_ref1 = meeting.sub_ref1 ? meeting.sub_ref1.replace(/\r\n/g, ' ') : '';
-            meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
-            meeting.entry_date = this.datePipe.transform(meeting.entry_date, "yyyy-MM-dd", "GMT");
+
+            // formatting the date to yyyy-MM-dd was causing datepickers to be off by one
+            // day due to timezone issues, these few lines resolve that issue
+            const dateAsUTC = new Date(meeting.entry_date);
+            dateAsUTC.setMinutes(dateAsUTC.getMinutes() + dateAsUTC.getTimezoneOffset());
+            meeting.entry_date = this.datePipe.transform(dateAsUTC, "yyyy-MM-dd", "GMT");
           });
+
+          this.meetingData.sort((a, b) => new Date(b.entry_date).getTime() - new Date(a.entry_date).getTime());
           console.log(this.meetingData);
           this.dataFetched = true;
         }

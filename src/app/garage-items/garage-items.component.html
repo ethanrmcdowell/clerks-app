@@ -14,7 +14,7 @@
             {{ saleData.street_addr }}, {{ saleData.zip | slice: 0:-1 }}
         </span>
         <span class="col-span-2">
-            {{ saleData.sale_date }} - {{ saleData.end_date }}
+            {{ saleData.sale_date.split('T')[0] }} - {{ saleData.end_date.split('T')[0] }}
         </span>
     </div>
 </mat-list-item>

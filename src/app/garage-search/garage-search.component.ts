@@ -85,6 +85,20 @@ export class GarageSearchComponent {
       this.apiService.searchGarage(this.searchForm.value).subscribe(data => {
         this.saleData = (data as any)[0];
         this.dataFetched = true;
+
+        this.saleData.forEach(item => {
+          const saleDateAsUTC = new Date(item.sale_date);
+          saleDateAsUTC.setMinutes(saleDateAsUTC.getMinutes() + saleDateAsUTC.getTimezoneOffset());
+          item.sale_date = this.datePipe.transform(saleDateAsUTC, "yyyy-MM-dd", "en");
+          item.sale_date += "T12:00:00";
+
+          const endDateAsUTC = new Date(item.end_date);
+          endDateAsUTC.setMinutes(endDateAsUTC.getMinutes() + endDateAsUTC.getTimezoneOffset());
+          item.end_date = this.datePipe.transform(endDateAsUTC, "yyyy-MM-dd", "en");
+          item.end_date += "T12:00:00";
+        });
+
+        this.saleData.sort((a, b) => new Date(b.sale_date).getTime() - new Date(a.sale_date).getTime());
   
         console.log(this.saleData);
       });
